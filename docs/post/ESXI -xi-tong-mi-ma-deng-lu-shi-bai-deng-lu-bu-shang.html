@@ -59,7 +59,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h1>ESXI 系统密码登录失败登录不上</h1>
+<div class="markdown-body" id="postBody"><p>ESXI 系统密码登录失败登录不上</p>
 <p>自从esxi版本升级到6.5+ 以后,经常遇到"用户名或密码不正确,无法完成登录的报错"。 这个问题曾经长时间困扰着it同事们，曾经有人发过帖子esxi6.5存在bug，升级到U3 或更高版本就可以了。而出现这个问题有时候缺非常诡异:</p>
 <ul>
 <li>web界面无法登录,但console控制台接显示器可以正常登录</li>
@@ -87,8 +87,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2719b3c2635ab15f331f285e2ee2196c0b98f75f90e75b83d5da76b54ea02984/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353135303834353736312e706e67"><img src="https://camo.githubusercontent.com/2719b3c2635ab15f331f285e2ee2196c0b98f75f90e75b83d5da76b54ea02984/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353135303834353736312e706e67" alt="在这里插入图片描述" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305150845761.png" style="max-width: 100%;"></a></p>
 <hr>
 <blockquote>
-<p>谁也没修改密码，出现这个现象是因为esxi6 开始引入了root账户锁功能，在登录失败次数达到一定量的时候(默认是5次)开始有900秒的锁定账号时间，这个时间是累加的。在高级设置里面把Security.AccountLockFailures的值改为0就可以</p>
-</blockquote></div>
+<p>谁也没修改密码，出现这个现象是因为esxi6 开始引入了root账户锁功能，在登录失败次数达到一定量的时候(默认是5次)开始有900秒的锁定账号时间，这个时间是累加的。在高级设置里面把Security.AccountLockFailures的值改为0就可以了。</p>
+</blockquote>
+</div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️转载请注明出处,谢谢！❤️</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
