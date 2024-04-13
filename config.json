@@ -17,7 +17,7 @@
     "themeMode":"manual",
     "dayTheme":"light",
     "nightTheme":"dark_colorblind",
-    "urlMode":"ru_translit",
+    "urlMode":"pinyin",
     "style":"",
     "script":"",
     "showPostSource":"1",
