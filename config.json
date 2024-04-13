@@ -7,7 +7,7 @@
     "startSite":"01/16/2024",
     "filingNum":" ",
     "onePageListNum":15,
-    "singlePage":["about"],
+    "singlePage":["link","about"],
     "iconList":{"这是一个没有想好的link":"M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"},
     "exlink":{"这是一个没有想好的link":"#"},
     "commentLabelColor":"#006b75",
