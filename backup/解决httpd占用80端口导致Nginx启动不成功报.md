@@ -4,7 +4,7 @@
 
 ​    今天在建自己小网站时[启动Nginx](https://so.csdn.net/so/search?q=%E5%90%AF%E5%8A%A8Nginx&spm=1001.2101.3001.7020)时，发现其报下列错误，意思是因为[80端口被占用](https://so.csdn.net/so/search?q=80%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8&spm=1001.2101.3001.7020)导致Nginx启动失败。
 
- ![img](https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202401221211069.png)
+![202401221211069](https://github.com/ttxs8/ttxs8.github.io/assets/58286237/253ed50f-5fc1-4183-a9e0-10dc4523bc5e)
 
 
 
@@ -16,7 +16,7 @@
 netstat -ntlp|grep 80
 ```
 
-![img](https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202401221211030.png)
+![202401221211030](https://github.com/ttxs8/ttxs8.github.io/assets/58286237/3bc2fa3f-cd73-4366-93f2-b79d24c05e1c)
 
  
 
