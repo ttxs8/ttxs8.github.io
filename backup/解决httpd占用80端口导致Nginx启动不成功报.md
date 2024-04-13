@@ -2,7 +2,7 @@
 
 ## 一、问题描述
 
-​    今天在建自己小网站时[[启动Nginx](https://so.csdn.net/so/search?q=%E5%90%AF%E5%8A%A8Nginx&spm=1001.2101.3001.7020)](https://so.csdn.net/so/search?q=启动Nginx&spm=1001.2101.3001.7020)时，发现其报下列错误，意思是因为[80端口被占用](https://so.csdn.net/so/search?q=80%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8&spm=1001.2101.3001.7020)导致Nginx启动失败。
+​    今天在建自己小网站时[启动Nginx](https://so.csdn.net/so/search?q=%E5%90%AF%E5%8A%A8Nginx&spm=1001.2101.3001.7020)时，发现其报下列错误，意思是因为[80端口被占用](https://so.csdn.net/so/search?q=80%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8&spm=1001.2101.3001.7020)导致Nginx启动失败。
 
  ![img](https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202401221211069.png)
 
