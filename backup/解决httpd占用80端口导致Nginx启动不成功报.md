@@ -52,5 +52,5 @@ cd /usr/local/nginx/sbin
 
 ​    输入公网ip，完美运行成功！！！
 
-## ![img](https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202401221211064.png)
+![202401221211064](https://github.com/ttxs8/ttxs8.github.io/assets/58286237/eb3b09d8-9b60-461c-86c6-5cf77a8742c1)
 <!-- ##{"timestamp":1705884703}## -->
