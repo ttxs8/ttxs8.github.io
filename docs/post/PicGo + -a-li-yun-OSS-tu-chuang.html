@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark_colorblind" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/ttxs8/ttxs8.github.io/logo.jpg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="PicGo + 阿里云OSS图床">
+<title>PicGo + 阿里云OSS图床</title>
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">PicGo + 阿里云OSS图床</h1>
+<div class="title-right">
+    <a href="http://blog.itzhm.com" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/ttxs8/ttxs8.github.io/issues/12" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>PicGo + 阿里云OSS图床</h1>
+<h2>注册</h2>
+<p>配置阿里云OSS 在浏览器搜索阿里云OSS，即可找到 [<a href="https://www.aliyun.com/product/oss" rel="nofollow">官网</a>](<a href="https://www.aliyun.com/product/oss)%E3%80%82" rel="nofollow">https://www.aliyun.com/product/oss)。</a></p>
+<p>注册,开通对象储存 注册账户并实名后，进入你的控制台<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cf543496a47cad330d809ae6e7a9f3c692521feb2972b809b2f2e9fe4ef44dc5/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323332362e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/cf543496a47cad330d809ae6e7a9f3c692521feb2972b809b2f2e9fe4ef44dc5/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323332362e706e67237069635f6c656674" alt="image-20220111194645144" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022326.png#pic_left" style="max-width: 100%;"></a></p>
+<p>选择对象储存并开通。</p>
+<h2>创建bucket</h2>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9c2da1d45393a0be817c0badd980d151a8ff4a8b38a9ca276e125bf83c933238/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323939302e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/9c2da1d45393a0be817c0badd980d151a8ff4a8b38a9ca276e125bf83c933238/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323939302e706e67237069635f6c656674" alt="image-20220111194540431" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022990.png#pic_left" style="max-width: 100%;"></a></p>
+<p>创建bucket 在左侧选择概览，然后在右侧创建一个新的<code class="notranslate">bucket</code><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d051c1cdc20624c2834c0e076b38dfc1c9a823ec8897861749adb9c18f543ae8/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323132382e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/d051c1cdc20624c2834c0e076b38dfc1c9a823ec8897861749adb9c18f543ae8/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323132382e706e67237069635f6c656674" alt="image-20220111195034924" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022128.png#pic_left" style="max-width: 100%;"></a></p>
+<p>注意：</p>
+<p><code class="notranslate">Bucket</code>名字不能有大写字母 服务器就近选择 图床选择标准存储 读写权限公共读<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b05d9726e276b2a309e80142f65fd20dca26073b3528a2a6f7c0ac9b12cd8b45/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323034302e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/b05d9726e276b2a309e80142f65fd20dca26073b3528a2a6f7c0ac9b12cd8b45/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323034302e706e67237069635f6c656674" alt="image-20220111195753835" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022040.png#pic_left" style="max-width: 100%;"></a></p>
+<p>创建完成后，你的<code class="notranslate">bucket</code>应该就出现在了左侧。</p>
+<h2>配置对象存储</h2>
+<p>找到你的地域节点 点击你的<code class="notranslate">bucket</code>名<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b4c79014414f8cabdbde17da85047992dd33715d75e9b2e82190d6ef9c8807c2/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323934302e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/b4c79014414f8cabdbde17da85047992dd33715d75e9b2e82190d6ef9c8807c2/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323934302e706e67237069635f6c656674" alt="image-20220111200207252" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022940.png#pic_left" style="max-width: 100%;"></a></p>
+<p>然后点击<code class="notranslate">bucket</code>下的概览<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/61af61c132e22f959e8ff615bc9e887612f83884ad7c976238d99bea048e79c4/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323836342e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/61af61c132e22f959e8ff615bc9e887612f83884ad7c976238d99bea048e79c4/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323836342e706e67237069635f6c656674" alt="image-20220111200304506" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022864.png#pic_left" style="max-width: 100%;"></a></p>
+<p>在访问域名一栏找到你的地域节点，后面会用到。<br>
+只需要复制<code class="notranslate">oss-cn-shenzhen</code>即可，不需要后面的<code class="notranslate">.aliyuncs.com</code>。</p>
+<p>找到你的<code class="notranslate">Key</code> 来到右上角，鼠标放在你的头像上，在弹出的框里选择<code class="notranslate">AccessKey</code>管理</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2abc78cadb3d2fbfa486ce621c8694b1f4b4a305d9598c09d9c1467d2bfdd279/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323036342e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/2abc78cadb3d2fbfa486ce621c8694b1f4b4a305d9598c09d9c1467d2bfdd279/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323036342e706e67237069635f6c656674" alt="image-20220111200832708" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022064.png#pic_left" style="max-width: 100%;"></a></p>
+<p>在弹出的选项框里，选择“继续使用”</p>
+<p>进入后，创建一个<code class="notranslate">AccessKey</code></p>
+<p>在弹出的界面里，记住你的<code class="notranslate">accessKeyId</code>和<code class="notranslate">accessKeySecret</code></p>
+<p>给你的阿里云账户充值。收费问题 阿里云OSS的各项收费是独立的！</p>
+<p>对于图床而言，有两种收费形式</p>
+<p>以充值的方式使用储存容量以及流量(默认状态) 按年/月收费，购买一定存储包。流量额外收费 也就是说，即便你购买了下图的存储包，你依旧要为访问图床的流量付钱！</p>
+<p>下图是在默认状态下，容量和流量收费的价格</p>
+<p>图床使用的是标准型，请勿购买其他类型</p>
+<p>储存容量：0.12元/GB/月 图片上传到阿里OSS流量：免费 外网流出流量(如typora访问图床图片)：闲时0.25元/GB，忙时0.50元/GB</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cedea869f80e0804c44b11894c5b6ae97da8e544f43ff3f880b19e7e7ab660bd/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323535332e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/cedea869f80e0804c44b11894c5b6ae97da8e544f43ff3f880b19e7e7ab660bd/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323535332e706e67237069635f6c656674" alt="image-20220104193905591" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022553.png#pic_left" style="max-width: 100%;"></a></p>
+<p>仔细算算，我们图床的数据量其实很小的</p>
+<p>0.12元/1GB/1个月，一年就是1.44元，远低于40GB的9元收费！</p>
+<p>截图/照片以平均0.5mb/张估算，1gb可存放超过1600张图片！</p>
+<p>数据低于6GB的情况下直接充值，以GB付费其实比购买储存包更加值得！</p>
+<p>注意事项 记得给阿里云账户充值！！别到时候欠费停用了！！ 刚开始作图床的时候，直接充值使用即可，无需购买容量包！</p>
+<p>到这里，我们阿里云OSS基本配置完毕了😎</p>
+<h2>配置picgo</h2>
+<p>图床设置 在图床设置里面选择阿里云<code class="notranslate">OSS</code>，依照以下步骤填写信息。如图：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/26b4113851db6526ac8d07da18fc9ad163cc11dddab686d065ad5d4513b2e346/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323830372e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/26b4113851db6526ac8d07da18fc9ad163cc11dddab686d065ad5d4513b2e346/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323830372e706e67237069635f6c656674" alt="image-20220523113647743" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022807.png#pic_left" style="max-width: 100%;"></a></p>
+<h3>图床配置</h3>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/970368028119f3a406091bf721c665e742617627db396f5b2d824e83e5a1dccb/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313033333533372e706e67"><img src="https://camo.githubusercontent.com/970368028119f3a406091bf721c665e742617627db396f5b2d824e83e5a1dccb/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313033333533372e706e67" alt="image-20220111203313899" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121033537.png" style="max-width: 100%;"></a></p>
+<p><strong>设定<code class="notranslate">Keyld</code></strong>：填写刚刚获得的<code class="notranslate">AccessKeyID</code></p>
+<p><strong>设定<code class="notranslate">KeySecret</code></strong>：填写<code class="notranslate">AccessKeyIDSecret</code></p>
+<p><strong>设定储存空间名</strong>：填写<code class="notranslate">bucket</code>名称（这里填写的是<code class="notranslate">bucket</code>名称，不是浏览器里的域名）</p>
+<p><strong>确认存储区域</strong>：填写你的地域节点，注意复制的格式</p>
+<p><strong>指定存储路径</strong>：其实就是自定义一个文件夹的名字，以/结尾，它会自动在你的bucket里面创建一个文件夹，并把图片上传进去</p>
+<p>弄完之后，记得“确定”，并点击“设置为默认图床”！</p>
+<h3>picgo设置</h3>
+<p>在设置里打开时间戳重命名和上传后自动复制<code class="notranslate">URL</code></p>
+<p>时间戳重命名：以上传时间来重命名图片，避免同名的图片无法上传（该设置不影响本地图片名）</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b657f5b06d31ab67d4a70649f78bc516cc887b3e74cea6ab6d5e4a258a96b43d/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323330362e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/b657f5b06d31ab67d4a70649f78bc516cc887b3e74cea6ab6d5e4a258a96b43d/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323330362e706e67237069635f6c656674" alt="image-20220111204114564" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022306.png#pic_left" style="max-width: 100%;"></a></p>
+<h2>配置typora</h2>
+<p>进入typora主界面，点击左上角的“文件-偏好设置” -- &gt; 选择图像 -- &gt; 插入图片时上传图片</p>
+<p>下面的选项全勾上</p>
+<p>上传服务选择<code class="notranslate">PicGo(app)</code></p>
+<p><code class="notranslate">PicGo</code>路径：找到<code class="notranslate">picgo.exe</code>文件，不是安装包的路径！！！！</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/71d9cd67957e5c7d414137c7f6314454cffcd07143c16344096fb57e946aa85d/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323531392e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/71d9cd67957e5c7d414137c7f6314454cffcd07143c16344096fb57e946aa85d/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323531392e706e67237069635f6c656674" alt="image-20220104193025600" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022519.png#pic_left" style="max-width: 100%;"></a></p>
+<p>大功告成！ 设置完毕后，我们点击验证图片上传选项</p>
+<p>如果弹出以下弹窗，我们的图床就搞定了！😀</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/586d47533a671c980ff187be47b0aaac82a7c4fb48dfeac4d5839bbc42bfe4ba/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323633382e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/586d47533a671c980ff187be47b0aaac82a7c4fb48dfeac4d5839bbc42bfe4ba/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323633382e706e67237069635f6c656674" alt="image-20220111205131635" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022638.png#pic_left" style="max-width: 100%;"></a></p>
+<p>最后新建一个文件，验证图片是否正常上传</p>
+<p>日常写作的时候，我们只需要复制图片，在typora里面粘贴即可，无需拖动！</p>
+<p>当你的图片链接显示为阿里云的网络链接，而不是本地路径时，配置完成。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2dd5a8f000edabc278f7bc2c442487c2bbbd34ac71b714250820b032ff4dfac1/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323938302e706e67237069635f6c656674"><img src="https://camo.githubusercontent.com/2dd5a8f000edabc278f7bc2c442487c2bbbd34ac71b714250820b032ff4dfac1/68747470733a2f2f74747873696d6167652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f74797065612f3230323330353132313032323938302e706e67237069635f6c656674" alt="image-20220111205318201" data-canonical-src="https://ttxsimage.oss-cn-beijing.aliyuncs.com/typea/202305121022980.png#pic_left" style="max-width: 100%;"></a></p>
+<p>作者：black-cat<br>
+出处：<a href="https://www.cnblogs.com/Kylin-lawliet/p/16446536.html" rel="nofollow">https://www.cnblogs.com/Kylin-lawliet/p/16446536.html</a></p></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️转载请注明出处,谢谢！❤️</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="http://blog.itzhm.com"> 天天向上 </a>
+<p><a href="https://beian.miit.gov.cn/" target="_blank"> </a>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if("01/16/2024"!=""){
+    var now=new Date();
+    var startSite=new Date("01/16/2024");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(" "!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","ttxs8/ttxs8.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+
+
+
+</html>
