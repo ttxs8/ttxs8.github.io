@@ -34,7 +34,7 @@ def connTCP():
         tcp_client_socket.connect((server_ip, server_port))
         #发送订阅指令
         substr = 'cmd=1&uid=4d9ec352e0376f2110a0c601a2857225&topic=led002\r\n'
-        tcp_client_socket.send(substr.encode("utf-8"))
+        tcp_client_socket.send(substr.encode('utf-8'))
     except:
         time.sleep(2)
         connTCP()
@@ -44,7 +44,7 @@ def Ping():
     # 发送心跳
     try:
         keeplive = 'ping\r\n'
-        tcp_client_socket.send(keeplive.encode("utf-8"))
+        tcp_client_socket.send(keeplive.encode('utf-8'))
     except:
         time.sleep(2)
         connTCP()
@@ -62,7 +62,7 @@ while True:
     if len(recvData) != 0:
         print('recv:', recvData.decode('utf-8'))
     else:
-        print("conn err")
+        print('conn err')
         connTCP()
 ```
 
@@ -90,30 +90,30 @@ pip3 install paho-mqtt
 
 import paho.mqtt.client as mqtt
 
-HOST = "bemfa.com"
+HOST = 'bemfa.com'
 PORT = 9501
-client_id = "4d9ec352e0376f2110a0c601a2857225"                       
+client_id = '4d9ec352e0376f2110a0c601a2857225'                       
 #连接并订阅
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
-    client.subscribe("led00202")         # 订阅消息
+    print('Connected with result code '+str(rc))
+    client.subscribe('led00202')         # 订阅消息
 
 #消息接收
 def on_message(client, userdata, msg):
-    print("主题:"+msg.topic+" 消息:"+str(msg.payload.decode('utf-8')))
+    print('主题:'+msg.topic+' 消息:'+str(msg.payload.decode('utf-8')))
 
 #订阅成功
 def on_subscribe(client, userdata, mid, granted_qos):
-    print("On Subscribed: qos = %d" % granted_qos)
+    print('On Subscribed: qos = %d' % granted_qos)
 
 # 失去连接
 def on_disconnect(client, userdata, rc):
     if rc != 0:
-        print("Unexpected disconnection %s" % rc)
+        print('Unexpected disconnection %s' % rc)
 
 
 client = mqtt.Client(client_id)
-client.username_pw_set("userName", "passwd")
+client.username_pw_set('userName', 'passwd')
 client.on_connect = on_connect
 client.on_message = on_message
 client.on_subscribe = on_subscribe
@@ -127,8 +127,8 @@ client.loop_forever()
 run.vbs
 
 ```vbscript
-Set ws = CreateObject("Wscript.Shell")
-ws.run "cmd /c C:\Windows\shutdown\run.bat",0
+Set ws = CreateObject('Wscript.Shell')
+ws.run 'cmd /c C:\Windows\shutdown\run.bat',0
 ```
 
 run.bat
@@ -137,7 +137,7 @@ run.bat
 python -u C:\Windows\shutdown\sd.py > log.out
 ```
 
-<!-- ##{"timestamp":1705107103}## -->。">
+<!-- ##{'timestamp':1705107103}## -->。">
 <meta property="og:title" content=" 巴法云python接入，TCP协议，MQTT协议">
 <meta property="og:description" content="# 巴法云python接入，TCP协议，MQTT协议
 
@@ -164,7 +164,7 @@ def connTCP():
         tcp_client_socket.connect((server_ip, server_port))
         #发送订阅指令
         substr = 'cmd=1&uid=4d9ec352e0376f2110a0c601a2857225&topic=led002\r\n'
-        tcp_client_socket.send(substr.encode("utf-8"))
+        tcp_client_socket.send(substr.encode('utf-8'))
     except:
         time.sleep(2)
         connTCP()
@@ -174,7 +174,7 @@ def Ping():
     # 发送心跳
     try:
         keeplive = 'ping\r\n'
-        tcp_client_socket.send(keeplive.encode("utf-8"))
+        tcp_client_socket.send(keeplive.encode('utf-8'))
     except:
         time.sleep(2)
         connTCP()
@@ -192,7 +192,7 @@ while True:
     if len(recvData) != 0:
         print('recv:', recvData.decode('utf-8'))
     else:
-        print("conn err")
+        print('conn err')
         connTCP()
 ```
 
@@ -220,30 +220,30 @@ pip3 install paho-mqtt
 
 import paho.mqtt.client as mqtt
 
-HOST = "bemfa.com"
+HOST = 'bemfa.com'
 PORT = 9501
-client_id = "4d9ec352e0376f2110a0c601a2857225"                       
+client_id = '4d9ec352e0376f2110a0c601a2857225'                       
 #连接并订阅
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
-    client.subscribe("led00202")         # 订阅消息
+    print('Connected with result code '+str(rc))
+    client.subscribe('led00202')         # 订阅消息
 
 #消息接收
 def on_message(client, userdata, msg):
-    print("主题:"+msg.topic+" 消息:"+str(msg.payload.decode('utf-8')))
+    print('主题:'+msg.topic+' 消息:'+str(msg.payload.decode('utf-8')))
 
 #订阅成功
 def on_subscribe(client, userdata, mid, granted_qos):
-    print("On Subscribed: qos = %d" % granted_qos)
+    print('On Subscribed: qos = %d' % granted_qos)
 
 # 失去连接
 def on_disconnect(client, userdata, rc):
     if rc != 0:
-        print("Unexpected disconnection %s" % rc)
+        print('Unexpected disconnection %s' % rc)
 
 
 client = mqtt.Client(client_id)
-client.username_pw_set("userName", "passwd")
+client.username_pw_set('userName', 'passwd')
 client.on_connect = on_connect
 client.on_message = on_message
 client.on_subscribe = on_subscribe
@@ -257,8 +257,8 @@ client.loop_forever()
 run.vbs
 
 ```vbscript
-Set ws = CreateObject("Wscript.Shell")
-ws.run "cmd /c C:\Windows\shutdown\run.bat",0
+Set ws = CreateObject('Wscript.Shell')
+ws.run 'cmd /c C:\Windows\shutdown\run.bat',0
 ```
 
 run.bat
@@ -267,7 +267,7 @@ run.bat
 python -u C:\Windows\shutdown\sd.py > log.out
 ```
 
-<!-- ##{"timestamp":1705107103}## -->。">
+<!-- ##{'timestamp':1705107103}## -->。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://blog.itzhm.com/post/%20-ba-fa-yun-python-jie-ru-%EF%BC%8CTCP-xie-yi-%EF%BC%8CMQTT-xie-yi.html">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ttxs8/ttxs8.github.io/logo64.jpg">
@@ -520,7 +520,6 @@ function iFrameLoading(){
     }
 }
 </script>
-
 
 
 </html>
