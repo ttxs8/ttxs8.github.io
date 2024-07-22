@@ -179,7 +179,7 @@
 <meta property="og:url" content="http://blog.itzhm.com/post/vps-ce-shi-jiao-ben.html">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/ttxs8/ttxs8.github.io/logo64.jpg">
 <title>vps测试脚本</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
 
 
 </head>
@@ -246,7 +246,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </li>
 <li>
 <p>使用方法：</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">wget -qO- bench.sh <span class="pl-k">|</span> bash</pre></div>
+<pre lang="bash" class="notranslate"><code class="notranslate">wget -qO- bench.sh | bash
+</code></pre>
 </li>
 <li>
 <p>内容：系统基本信息显示、IO测试、全球主要节点测速</p>
@@ -266,9 +267,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </li>
 <li>
 <p>使用方法：</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">wget --no-check-certificate  https://github.com/teddysun/across/raw/master/unixbench.sh
+<pre lang="bash" class="notranslate"><code class="notranslate">wget --no-check-certificate  https://github.com/teddysun/across/raw/master/unixbench.sh
 chmod +x unixbench.sh
-./unixbench.sh</pre></div>
+./unixbench.sh
+</code></pre>
 </li>
 <li>
 <p>内容：系统调用、读写、进程、图形化测试、2D、3D、管道等</p>
@@ -289,7 +291,8 @@ chmod +x unixbench.sh
 </li>
 <li>
 <p>使用方法：</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -L -s check.unlock.media<span class="pl-pds">)</span></span></pre></div>
+<pre lang="bash" class="notranslate"><code class="notranslate">bash &lt;(curl -L -s check.unlock.media)
+</code></pre>
 </li>
 <li>
 <p>内容：国际上各大流媒体平台以及部分游戏可用性测试</p>
@@ -310,7 +313,8 @@ chmod +x unixbench.sh
 </li>
 <li>
 <p>使用方法：</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh<span class="pl-k">|</span>bash</pre></div>
+<pre lang="bash" class="notranslate"><code class="notranslate">curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh|bash
+</code></pre>
 </li>
 <li>
 <p>内容：三大运营商7大主流线路测试</p>
@@ -330,7 +334,8 @@ chmod +x unixbench.sh
 </li>
 <li>
 <p>使用方法：</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -Lso- https://git.io/superspeed_uxh<span class="pl-pds">)</span></span></pre></div>
+<pre lang="bash" class="notranslate"><code class="notranslate">bash &lt;(curl -Lso- https://git.io/superspeed_uxh)
+</code></pre>
 </li>
 <li>
 <p>内容：全国各个地区各大运营商网速测速</p>
